@@ -23,9 +23,10 @@ export async function versionService (db) {
   const panelVer = await panelUri.json()
   const wingsVer = await wingsUri.json()
 
+
   try {
-    db.set('panel', panelVer.tag_name)
-    db.set('wings', wingsVer.tag_name)
+    db.set('panel', (panelVer.tag_name).slice(1))
+    db.set('wings',  (wingsVer.tag_name).slice(1))
     db.set('lastSynced', new Date().toLocaleTimeString())
   } catch (e) { console.error() }
 
