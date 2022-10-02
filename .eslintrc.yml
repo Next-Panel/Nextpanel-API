@@ -6,4 +6,6 @@ extends: standard
 overrides: []
 parserOptions:
   ecmaVersion: latest
-rules: {}
+rules: {
+  "indent": ["warn", 4],
+}
