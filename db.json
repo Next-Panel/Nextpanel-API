@@ -1,8 +1,12 @@
 {
-    "panel": "3.8.0",
-    "wings": "1.11.4",
-    "server": {
-        "syncing": true,
-        "lastSynced": "19:53:51"
-    }
+    "Versão": [
+        {
+            "panel": "3.8.0",
+            "wings": "1.11.4",
+            "server": {
+                "syncing": true,
+                "lastSynced": "19:53:51"
+            }
+        }
+    ]
 }
