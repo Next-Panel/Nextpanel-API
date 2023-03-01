@@ -17,7 +17,7 @@ function databaseService (db) {
 export async function versionService (db) {
     console.info(`version: waiting for response (${new Date().toLocaleTimeString()})`)
 
-    const panel = await (await fetch(url('jexactyl/jexactyl'))).json()
+    const panel = await (await fetch(url('Next-Panel/Jexactyl-BR'))).json()
     const wings = await (await fetch(url('pterodactyl/wings'))).json()
 
     try {
