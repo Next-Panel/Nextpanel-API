@@ -2,5 +2,5 @@
 
 # Jexactyl - Version API
 
-This system takes the newest data from GitHub in terms of software releases of Jexactyl, and delivers them straight to your instance of the Panel.
-:construction: It is not recommended that you run this yourself - this is merely a demonstration of how this system works and functions.
+Este sistema pega os mais recentes dados do GitHub em termos de lançamentos de software do Jexactyl, e entrega-os directamente à sua instância do Painel.
+🚧 Não é recomendável que seja o próprio utilizador a executá-lo - isto é apenas uma demonstração de como este sistema funciona.
