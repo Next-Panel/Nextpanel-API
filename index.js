@@ -14,9 +14,8 @@ function main() {
         ws(express(), db)
     }
     setInterval(function () {
-        fs.writeFileSync("input.json", JSON.stringify(
-            `{"panel":"${db.get('panel')}","wings":"${db.get('wings')}","server":{"syncing":${db.get('ready')},"lastSynced":"${db.get('lastSynced')}"}}`
-            //`{"panel":"` + `${db.get('panel')}` + `","wings":"` + `${db.get('wings')}` + `","server":{"syncing":` + `${db.get('ready')}` + `,"lastSynced":"` + `${db.get('lastSynced')}` + `"}}`
+        fs.writeFileSync("input.json",  (
+            (`{"panel":"${db.get('panel')}","wings":"${db.get('wings')}","server":{"syncing":${db.get('ready')},"lastSynced":"${db.get('lastSynced')}"}}`)
         ));
     },
         10000)
