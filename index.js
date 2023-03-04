@@ -21,6 +21,7 @@ var refreshIntervalId = setInterval(function () {
         ));
     }, 31000)
 setInterval(function () {
+    console.log("Desligando...")
     clearInterval(refreshIntervalId);
     clearTimeout(startIntervalDB);
 }, 35000)
