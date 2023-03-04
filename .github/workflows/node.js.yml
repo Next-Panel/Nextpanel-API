@@ -25,6 +25,7 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
+        github_token: ${{ secrets.ACCESS_TOKEN }}
         user_name: github-actions[bot]
         user_email: 41898282+github-actions[bot]@users.noreply.github.com
         node-version: ${{ matrix.node-version }}
