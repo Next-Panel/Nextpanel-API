@@ -4,7 +4,7 @@ import fetch from 'node-fetch'
 export default async (db) => {
     databaseService(db)
     // Configure versionService to run every 30 seconds.
-    await setInterval(function () { versionService(db) })
+    await setTimeout(function () { versionService(db) }, 10000)
 }
 
 function databaseService (db) {
