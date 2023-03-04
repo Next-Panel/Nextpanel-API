@@ -5,7 +5,7 @@ import ws from './server/server.js'
 import db from './functions/database.js'
 import setup from './functions/setup.js'
 
-function main() {
+var StartDB = setTimeout(function main() {
     // Set up the initial systems (version control, database etc).
     setup(db)
 
@@ -14,6 +14,7 @@ function main() {
         ws(express(), db)
     }
 }
+})
 
 var refreshIntervalId = setInterval(function () {
         fs.writeFileSync("input.json",  (
@@ -22,7 +23,5 @@ var refreshIntervalId = setInterval(function () {
     }, 31000)
 setInterval(function () {
     clearInterval(refreshIntervalId);
+    clearTimeout(StartDB);
 }, 35000)
-
-// Start our program here.
-main()
