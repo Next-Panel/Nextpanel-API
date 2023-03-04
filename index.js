@@ -19,22 +19,15 @@ var startDB = function () {
     })
 }
 
+
 var startFile = function () {
     intervalo_file = clearInterval(() => {
+        console.log("Arquivo Criado")
         fs.writeFileSync("input.json", (
             (`{"panel":"${db.get('panel')}","wings":"${db.get('wings')}","server":{"syncing":${db.get('ready')},"lastSynced":"${db.get('lastSynced')}"}}`)
         ));
-    }, 31000)
-}
-
-var stop = function () {
-    setTimeout(() => {
-        clearTimeout(intervalo)
-        clearInterval(intervalo_file)
-        console.log('Desligando..');
-    }, 35000)
+    })
 }
 
 startDB();
 startFile();
-stop();
