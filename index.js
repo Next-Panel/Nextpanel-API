@@ -23,6 +23,7 @@ function main() {
 clearInterval(refreshIntervalId);
 }, 
         35000)
+}
 
 // Start our program here.
 main()
