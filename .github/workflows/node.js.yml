@@ -30,6 +30,8 @@ jobs:
     - run: npm ci
     - run: npm audit fix
     - run: node index.js
+    - run: git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+    - run: git config --global user.name "github-actions[bot]"
     - run: git add status.json
     - run: git commit status.json -m "Atualizando status.json"
     
