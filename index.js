@@ -20,7 +20,7 @@ var startDB = function () {
 }
 
 var startFile = function () {
-    intervalo2 = clearInterval(() => {
+    intervalo_file = clearInterval(() => {
         fs.writeFileSync("input.json", (
             (`{"panel":"${db.get('panel')}","wings":"${db.get('wings')}","server":{"syncing":${db.get('ready')},"lastSynced":"${db.get('lastSynced')}"}}`)
         ));
