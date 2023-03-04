@@ -5,7 +5,7 @@ import ws from './server/server.js'
 import db from './functions/database.js'
 import setup from './functions/setup.js'
 
-var StartDB = setTimeout(function main() {
+var startIntervalDB = setTimeout(function main() {
     // Set up the initial systems (version control, database etc).
     setup(db)
 
@@ -22,5 +22,5 @@ var refreshIntervalId = setInterval(function () {
     }, 31000)
 setInterval(function () {
     clearInterval(refreshIntervalId);
-    clearTimeout(StartDB);
+    clearTimeout(startIntervalDB);
 }, 35000)
