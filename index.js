@@ -5,23 +5,36 @@ import ws from './server/server.js'
 import db from './functions/database.js'
 import setup from './functions/setup.js'
 
-var startIntervalDB = setTimeout(function main() {
-    // Set up the initial systems (version control, database etc).
-    setup(db)
+let intervalo = null;
+let intervalo_file = null;
 
-    if (db.get('ready')) {
-        // Launch the server instance; including Express and our DB.
-        ws(express(), db)
-    }
-})
+var startDB = function () {
+    intervalo = setTimeout(() => {
+        setup(db)
 
-var refreshIntervalId = setInterval(function () {
-        fs.writeFileSync("input.json",  (
+        if (db.get('ready')) {
+            // Launch the server instance; including Express and our DB.
+            ws(express(), db)
+        }
+    })
+}
+
+var startFile = function () {
+    intervalo2 = clearInterval(() => {
+        fs.writeFileSync("input.json", (
             (`{"panel":"${db.get('panel')}","wings":"${db.get('wings')}","server":{"syncing":${db.get('ready')},"lastSynced":"${db.get('lastSynced')}"}}`)
         ));
     }, 31000)
-setInterval(function () {
-    console.log("Desligando...")
-    clearInterval(refreshIntervalId);
-    clearTimeout(startIntervalDB);
-}, 35000)
+}
+
+var stop = function () {
+    setTimeout(() => {
+        clearTimeout(intervalo)
+        clearInterval(intervalo_file)
+        console.log('Desligando..');
+    }, 35000)
+}
+
+startDB();
+startFile();
+stop();
