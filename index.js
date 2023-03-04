@@ -13,7 +13,6 @@ var StartDB = setTimeout(function main() {
         // Launch the server instance; including Express and our DB.
         ws(express(), db)
     }
-}
 })
 
 var refreshIntervalId = setInterval(function () {
