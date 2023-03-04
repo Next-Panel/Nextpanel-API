@@ -31,5 +31,5 @@ jobs:
     - run: npm audit fix
     - run: node index.js
     - run: git add Update
-            git commit Update -m "Atualizando status.json"
+    - run: git commit Update -m "Atualizando status.json"
     
