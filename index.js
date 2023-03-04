@@ -9,7 +9,7 @@ setup(db)
 
 setTimeout(function main() {
 console.log("Arquivo Criado")
-fs.writeFileSync("input.json", (
+fs.writeFileSync("status.json", (
     (`{"panel":"${db.get('panel')}","wings":"${db.get('wings')}","server":{"syncing":${db.get('ready')},"lastSynced":"${db.get('lastSynced')}"}}`)
 ))}, 13000)
  
