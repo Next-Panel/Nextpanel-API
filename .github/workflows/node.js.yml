@@ -34,5 +34,5 @@ jobs:
     - run: npm audit fix
     - run: node index.js
     - run: git add status.json
-    - run: git commit status.json -m "Atualizando status.json"
+    - run: git commit --allow-empty --author="github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
     
