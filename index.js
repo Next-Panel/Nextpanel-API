@@ -13,13 +13,16 @@ function main() {
         // Launch the server instance; including Express and our DB.
         ws(express(), db)
     }
-    setInterval(function () {
+    var refreshIntervalId =    setInterval(function () {
         fs.writeFileSync("input.json",  (
             (`{"panel":"${db.get('panel')}","wings":"${db.get('wings')}","server":{"syncing":${db.get('ready')},"lastSynced":"${db.get('lastSynced')}"}}`)
         ));
     },
-        10000)
-}
+        31000)
+ setInterval(function () {
+clearInterval(refreshIntervalId);
+}, 
+        35000)
 
 // Start our program here.
 main()
