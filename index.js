@@ -4,19 +4,29 @@ import setup from './functions/setup.js';
 
 setup(db);
 
-setTimeout(function main() {
+function createStatusFile() {
   console.log("Criando arquivo...");
+  const panel = db.get('panel');
+  const wings = db.get('wings');
+  const syncing = db.get('ready');
+  const lastSynced = db.get('lastSynced');
+
+  // Verificar se algum valor é undefined
+  if (panel === undefined || wings === undefined || syncing === undefined || lastSynced === undefined) {
+    console.log("Algum valor é indefinido. Tentando novamente em 10 segundos...");
+    setTimeout(createStatusFile, 10000); // Chama a função novamente após 10 segundos
+    return;
+  }
+
   const data = {
-    panel: db.get('panel'),
-    wings: db.get('wings'),
+    panel,
+    wings,
     server: {
-      syncing: db.get('ready'),
-      lastSynced: db.get('lastSynced')
+      syncing,
+      lastSynced
     }
   };
-  // Validar e escapar os valores antes de inseri-los no JSON
   const json = JSON.stringify(data, null, 2);
-  // Usar o método "fs.writeFile()" para não bloquear o processo principal
   fs.writeFile("status.json", json, (err) => {
     if (err) {
       console.error(err.message);
@@ -24,15 +34,18 @@ setTimeout(function main() {
       console.log("Arquivo criado com sucesso");
     }
   });
-}, 15000); // Tempo de 15 segundos
 
-// Fechar o banco de dados após 17 segundos
-setTimeout(function main() {
-  db.close((err) => {
-    if (err) {
-      console.error(err.message);
-    } else {
-      console.log('Banco de dados parado com sucesso');
-    }
-  });
-}, 17000);
+  // Fechar o banco de dados após 2 segundos
+  setTimeout(function main() {
+    db.close((err) => {
+      if (err) {
+        console.error(err.message);
+      } else {
+        console.log('Banco de dados parado com sucesso');
+      }
+    });
+  }, 2000);
+}
+
+// Chama a função pela primeira vez
+createStatusFile();
