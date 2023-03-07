@@ -1,8 +1,8 @@
 {
-  "panel": "undefined",
-  "wings": "undefined",
+  "panel": "3.8.2",
+  "wings": "1.11.4",
   "server": {
     "syncing": true,
-    "lastSynced": "undefined"
+    "lastSynced": "2:23:20 AM"
   }
 }
