@@ -2,7 +2,7 @@ import fs from 'fs';
 import db from './functions/database.js';
 import version from './functions/version.js';
 
-function createStatusFile(callback) {
+function createStatusFile() {
   try {
     version(db);
   } catch (err) {
@@ -18,7 +18,7 @@ function createStatusFile(callback) {
 
   if (panel === undefined || panel_p === undefined || wings === undefined || syncing === undefined || lastSynced === undefined) {
     console.log("Algum valor é indefinido. Tentando novamente em 10 segundos...");
-    setTimeout(createStatusFile, 10000, callback);
+    setTimeout(createStatusFile, 10000);
     return;
   }
 
@@ -31,26 +31,30 @@ function createStatusFile(callback) {
     }
   };
   const json = JSON.stringify(data, null, 2);
-  fs.writeFile("jexactyl.json", json, (err) => {
-    console.log("Arquivo jexactyl.json criado com sucesso");
+  fs.writeFile("./version/jexactyl.json", json, (err) => {
+    if (err) {
+      console.error(err.message);
+    } else {
+      console.log("Arquivo jexactyl.json criado com sucesso");
+    }
+  });
 
-    const data_p = {
-      "daemon": "0.9.999",
-      "panel": db.get('panel_p'),
-      wings,
-      "sftp": "1.0.5",
-      "discord": "https://discord.gg/Wf8Eycz4Tq",
-      lastSynced
-    };
-    const json_p = JSON.stringify(data_p, null, 2);
-    fs.writeFile("pterodactyl.json", json_p, (err) => {
-      if (err) {
-        console.error(err.message);
-        callback(err);
-      } else {
-        console.log("Arquivo pterodactyl.json criado com sucesso");
-      }
-    });
-  })
+  const data_p = {
+    "daemon": "0.9.999",
+    "panel": db.get('panel_p'),
+    wings,
+    "sftp": "1.0.5",
+    "discord": "https://discord.gg/Wf8Eycz4Tq",
+    lastSynced
+  };
+  const json_p = JSON.stringify(data_p, null, 2);
+  fs.writeFile("./version/pterodactyl.json", json_p, (err) => {
+    if (err) {
+      console.error(err.message);
+    } else {
+      console.log("Arquivo pterodactyl.json criado com sucesso");
+    }
+  });
 }
+
 createStatusFile();
