@@ -31,7 +31,7 @@ function createStatusFile() {
     }
   };
   const json = JSON.stringify(data, null, 2);
-  fs.writeFile("./version/jexactyl.json", json, (err) => {
+  fs.writeFile("/version/jexactyl.json", json, (err) => {
     if (err) {
       console.error(err.message);
     } else {
@@ -48,7 +48,7 @@ function createStatusFile() {
     lastSynced
   };
   const json_p = JSON.stringify(data_p, null, 2);
-  fs.writeFile("./version/pterodactyl.json", json_p, (err) => {
+  fs.writeFile("/version/pterodactyl.json", json_p, (err) => {
     if (err) {
       console.error(err.message);
     } else {
