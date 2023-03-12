@@ -43,13 +43,7 @@ function createStatusFileJex(callback) {
     }
   });
   setTimeout(function main() {
-    db.unset('panel').write((err) => {
-      if (err) {
-        console.error(err.message);
-      } else {
-        console.log('Tabela panel apagada.');
-      }
-    });
+    db.setState({}).write();
     db.close((err) => {
       if (err) {
         console.error(err.message);
