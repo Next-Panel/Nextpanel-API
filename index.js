@@ -39,6 +39,7 @@ function createStatusFileJex(callback) {
     } else {
       console.log("Arquivo criado com sucesso");
       db.set('panel', undefined)
+      db.close(); // fecha o banco de dados
       // chamar a função createStatusFilePtero após a criação do arquivo jexactyl.json
       createStatusFilePtero(callback);
     }
