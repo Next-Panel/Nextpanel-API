@@ -45,6 +45,7 @@ function createStatusFileJex(callback) {
 }
 
 function createStatusFilePtero(callback) {
+  pterodactyl(db);
   console.log("Criando arquivo...");
   const panel = db.get('panel');
   const wings = db.get('wings');
