@@ -45,7 +45,19 @@ function createStatusFileJex(callback) {
 }
 
 function createStatusFilePtero(callback) {
-  pterodactyl(db);
+  db.close((err) => {
+    if (err) {
+      console.error(err.message);
+    } else {
+      console.log('Banco de dados parado com sucesso');
+    }
+  })
+  try {
+    pterodactyl(db);
+  } catch (err) {
+    console.error(err.message);
+    return;
+  }
   console.log("Criando arquivo...");
   const panel = db.get('panel');
   const wings = db.get('wings');
