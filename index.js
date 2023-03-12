@@ -45,6 +45,14 @@ function createStatusFileJex(callback) {
 }
 
 function createStatusFilePtero(callback) {
+  db.unset('panel').write((err) => {
+    if (err) {
+      console.error(err.message);
+    } else {
+      console.log('Tabela panel apagada.');
+    }
+  });
+
   db.close((err) => {
     if (err) {
       console.error(err.message);
@@ -52,6 +60,7 @@ function createStatusFilePtero(callback) {
       console.log('Banco de dados parado com sucesso');
     }
   })
+
   try {
     pterodactyl(db);
   } catch (err) {
