@@ -6,8 +6,8 @@
 
 ![Alt](https://repobeats.axiom.co/api/embed/f85e2a8f9cb8008207e4ee5d09beee40bbd100c9.svg "Repobeats analytics image")
 
-# Jexactyl - Version API
+# Nextpanel - Version API
 
-Este sistema pega os mais recentes dados do GitHub em termos de lançamentos de software do Jexactyl, e entrega-os directamente à sua instância do Painel.
+Este sistema pega os mais recentes dados do GitHub em termos de lançamentos de todos os painels traduzidos pela Nextpanel, e os entrega-os diretamente à sua instância do Painel.
 
-🚧 Não é recomendável que seja o próprio utilizador a executá-lo - isto é apenas uma demonstração de como este sistema funciona.
+🚧 Não é recomendável que você o executar — isto é apenas uma demonstração de como este sistema funciona.
