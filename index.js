@@ -43,7 +43,7 @@ function createStatusFileJex(callback) {
     }
   });
   setTimeout(function main() {
-    db.write({})
+    db.set('panel', {}).write();
     db.close((err) => {
       if (err) {
         console.error(err.message);
