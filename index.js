@@ -42,25 +42,26 @@ function createStatusFileJex(callback) {
       createStatusFilePtero(callback);
     }
   });
+  setTimeout(function main() {
+    db.unset('panel').write((err) => {
+      if (err) {
+        console.error(err.message);
+      } else {
+        console.log('Tabela panel apagada.');
+      }
+    });
+    db.close((err) => {
+      if (err) {
+        console.error(err.message);
+      } else {
+        console.log('Banco de dados parado com sucesso');
+      }
+    });
+  }, 2000);
 }
 
+
 function createStatusFilePtero(callback) {
-  db.unset('panel').write((err) => {
-    if (err) {
-      console.error(err.message);
-    } else {
-      console.log('Tabela panel apagada.');
-    }
-  });
-
-  db.close((err) => {
-    if (err) {
-      console.error(err.message);
-    } else {
-      console.log('Banco de dados parado com sucesso');
-    }
-  })
-
   try {
     pterodactyl(db);
   } catch (err) {
