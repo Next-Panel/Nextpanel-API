@@ -1,4 +1,4 @@
-![image](https://cdn.discordapp.com/attachments/1012411945141424218/1012430446556090468/JexactylBannerBasic.jpg)
+# ![image](https://raw.githubusercontent.com/Next-Panel/Docs/main/static/img/baner.png)
 
 [![CodeFactor](https://www.codefactor.io/repository/github/next-panel/jexactyl-api/badge/master?style=for-the-badge)](https://www.codefactor.io/repository/github/next-panel/jexactyl-api/overview/master)
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Next-Panel/Jexactyl-API/node.js.yml?style=for-the-badge)
