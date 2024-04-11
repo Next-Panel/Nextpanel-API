@@ -19,7 +19,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [21.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -31,7 +31,7 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm audit fix
-    - run: node index.js
+    - run: npm run dev
     - name: Git Auto Commit
       uses: stefanzweifel/git-auto-commit-action@v4.16.0
       with:

@@ -10,4 +10,4 @@
 
 Este sistema pega os mais recentes dados do GitHub em termos de lançamentos de todos os painels traduzidos pela Nextpanel, e os entrega-os diretamente à sua instância do Painel.
 
-🚧 Não é recomendável que você o executar — isto é apenas uma demonstração de como este sistema funciona.
+🚧 Não é necessario que você execute isto.
