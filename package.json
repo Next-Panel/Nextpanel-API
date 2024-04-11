@@ -1,15 +1,17 @@
 {
   "name": "version-api",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
-  "type": "module",
-  "main": "index.js",
-  "author": "Jexactyl",
+  "main": "src/start.ts",
+  "author": "ashu11-a",
   "license": "MIT",
+  "scripts": {
+    "dev": "ts-node -r tsconfig-paths/register --transpiler sucrase/ts-node-plugin src/start.ts"
+  },
   "dependencies": {
-    "enmap": "^5.9.2",
-    "express": "^4.18.1",
-    "fs": "^0.0.1-security",
-    "node-fetch": "^3.2.10"
+    "sucrase": "^3.35.0",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.4.5"
   }
 }
