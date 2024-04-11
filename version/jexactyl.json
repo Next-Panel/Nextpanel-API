@@ -1,8 +1,8 @@
 {
+  "daemon": "0.9.999",
+  "sftp": "1.0.5",
+  "discord": "https://discord.gg/Wf8Eycz4Tq",
   "panel": "3.8.5",
   "wings": "1.11.11",
-  "server": {
-    "syncing": true,
-    "lastSynced": "7:02:32 PM"
-  }
+  "lastSynced": "7:28:34 PM"
 }
